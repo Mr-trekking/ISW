@@ -1,0 +1,11 @@
+#! /bin/bash
+
+cd ISWFoam-master
+wclean
+wmake
+cd ../setRhoFields
+wclean
+wmake
+cd ../setUFields
+wclean
+wmake 

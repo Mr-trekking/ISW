@@ -1,0 +1,121 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  plus                                  |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     ISWFoam;
+
+startFrom       startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         60;
+
+deltaT          0.01;
+
+writeControl    adjustableRunTime;
+
+writeInterval   1;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable yes;
+
+adjustTimeStep  yes;
+
+maxCo           0.85;
+maxAlphaCo      0.85;
+
+maxDeltaT       0.85;
+
+
+functions
+{
+    sets
+    {
+        type            sets;
+        libs            ("libsampling.so");
+        enabled         true;
+        writeControl    adjustableRunTime;
+        writeInterval   0.05;
+
+        interpolationScheme cellPoint;
+        setFormat       raw;
+        sets
+        (
+            GaugeVOF01
+            {
+                type    uniform;
+                axis    xyz;
+                start   (9.5001 0.01 0.0);
+                end     (9.5001 0.01 0.5);
+                nPoints 2000;
+            }
+            GaugeVOF02
+            {
+                type    uniform;
+                axis    xyz;
+                start   ( 8.4001 0.01 0.0 );
+                end     ( 8.4001 0.01 0.5 );
+                nPoints 2000;
+            }
+            GaugeVOF03
+            {
+                type    uniform;
+                axis    xyz;
+                start   ( 7.3001 0.01 0.0 );
+                end     ( 7.3001 0.01 0.5 );
+                nPoints 2000;
+            }
+            GaugeVOF04
+            {
+                type    uniform;
+                axis    xyz;
+                start   ( 6.2001 0.01 0.0 );
+                end     ( 6.2001 0.01 0.5 );
+                nPoints 2000;
+            }
+            GaugeVOF05
+            {
+                type    uniform;
+                axis    xyz;
+                start   (5.1001 0.01 0.0);
+                end     (5.1001 0.01 0.5);
+                nPoints 2000;
+            }
+         );
+
+        fixedLocations  false;
+        fields
+        (
+            rho
+        );
+    }
+}
+
+
+// ************************************************************************* //
