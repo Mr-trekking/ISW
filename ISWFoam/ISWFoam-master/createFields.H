@@ -89,9 +89,11 @@ volScalarField deltaRho
     (
         "deltaRho",
         runTime.timeName(),
-        mesh
+        mesh,
+        IOobject::NO_READ,
+        IOobject::AUTO_WRITE
     ),
-    (rho - rhoRef)/rhoRef*I
+    rho/rhoRef*I
 );
 
 #include "readGravitationalAcceleration.H"
@@ -109,7 +111,7 @@ volScalarField p
         IOobject::NO_READ,
         IOobject::AUTO_WRITE
     ),
-    p_rgh + deltaRho*gh
+    p_rgh*rhoRef/I + rho*gh
 );
 
 label pRefCell = 0;

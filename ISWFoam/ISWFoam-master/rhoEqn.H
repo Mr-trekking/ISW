@@ -16,5 +16,5 @@
 
     fvOptions.correct(rho);
 
-    deltaRho = (rho - rhoRef)/rhoRef*I;
+    deltaRho = rho/rhoRef*I;
 
