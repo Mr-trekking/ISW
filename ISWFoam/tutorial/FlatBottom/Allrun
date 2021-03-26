@@ -1,8 +1,0 @@
-#! /bin/bash
-
-decomposePar
-mpirun -n 36 ISWFoam -parallel &>log
-
-reconstructPar -time 10,20,30,40,50
-foamToVTK
-./postSensDensity.py

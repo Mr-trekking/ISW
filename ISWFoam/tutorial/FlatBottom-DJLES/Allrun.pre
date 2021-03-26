@@ -1,0 +1,11 @@
+#! /bin/bash
+
+blockMesh
+
+cp -r 0.orig 0
+
+#setUFields
+
+#setRhoFields
+
+foamToVTK -name VTK-0s

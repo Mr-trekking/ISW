@@ -142,6 +142,8 @@ bool setCellFieldType
             scalar pos = lambda*(mesh.C()[cellI].x()-x0);
             const scalar eta = H/(B + (1 - B)*sqr(Foam::cosh(pos)));
 
+
+            //R TO L
             if (mesh.C()[cellI].z() - h2 > eta)
             {
                 field[cellI] = 1 * ce * eta/(h1 - eta) * value;
@@ -151,7 +153,18 @@ bool setCellFieldType
                 field[cellI] = -1 * ce * eta/(h2 + eta) * value;
             }
         }
-
+/*
+            //L TO R
+            if (mesh.C()[cellI].z() - h2 > eta)
+            {
+                field[cellI] = -1 * ce * eta/(h1 - eta) * value;
+            }
+            else
+            {
+                field[cellI] = 1 * ce * eta/(h2 + eta) * value;
+            }
+        }
+*/
         typename GeometricField<Type, fvPatchField, volMesh>::
             Boundary& fieldBf = field.boundaryFieldRef();
 

@@ -1,9 +1,0 @@
-#! /bin/bash
-
-foamListTimes -rm
-rm -rf VTK* log gaugesInterFace
-rm -rf 0
-rm -rf proce*
-rm -rf postPro*
-rm -rf slu*
-

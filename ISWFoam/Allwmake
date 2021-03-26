@@ -1,6 +1,9 @@
 #! /bin/bash
 
-cd ISWFoam-master
+cd ./densityTurbulenceModels-master
+wclean
+wmake
+cd ../ISWFoam-master
 wclean
 wmake
 cd ../setRhoFields
